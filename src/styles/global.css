@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Paleta oficial — valores em RGB para permitir opacidade via Tailwind (rgb(var(--x) / <alpha-value>)) */
+  --color-sage: 138 154 130; /* #8A9A82 */
+  --color-charcoal: 58 58 56; /* #3A3A38 */
+  --color-cream: 245 241 232; /* #F5F1E8 */
+  --color-terracotta: 196 112 79; /* #C4704F */
+  --color-terracotta-hover: 176 101 71; /* terracota escurecida em ~10% */
+  --color-white: 255 255 255; /* #FFFFFF */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(var(--color-white));
+  color: rgb(var(--color-charcoal));
+  font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Fraunces", ui-serif, Georgia, serif;
+  color: rgb(var(--color-charcoal));
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+/* Textura de papel bem sutil, aplicada apenas no hero, sobre o bege. */
+.paper-texture {
+  position: relative;
+  isolation: isolate;
+}
+
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-repeat: repeat;
+}
+
+.paper-texture > * {
+  position: relative;
+  z-index: 1;
+}
