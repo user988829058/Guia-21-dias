@@ -6,3 +6,6 @@ dist-ssr
 .env
 .env.local
 .DS_Store
+
+# receitas-fit (gerador de PDF)
+receitas-fit/src/__pycache__/

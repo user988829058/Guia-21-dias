@@ -1,0 +1,366 @@
+/* ===================================================================
+   Receitas fit de dar água na boca — folha de estilo do PDF (A5)
+   =================================================================== */
+
+@font-face {
+  font-family: "Fraunces";
+  font-weight: 500;
+  font-style: normal;
+  src: url("../fonts/Fraunces-500.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Fraunces";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../fonts/Fraunces-600.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Fraunces";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../fonts/Fraunces-700.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/SourceSans3-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 400;
+  font-style: italic;
+  src: url("../fonts/SourceSans3-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../fonts/SourceSans3-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../fonts/SourceSans3-Bold.ttf") format("truetype");
+}
+
+/* -------------------------------------------------------------------
+   Página — A5, coluna única
+   ------------------------------------------------------------------- */
+
+@page {
+  size: 148mm 210mm;
+  margin: 18mm 15mm;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #3a3a38;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 12pt;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  color: #8a9a82;
+  margin: 0;
+}
+
+p {
+  margin: 0 0 8pt 0;
+}
+
+/* -------------------------------------------------------------------
+   Capa
+   ------------------------------------------------------------------- */
+
+.cover {
+  page: cover;
+  break-after: page;
+  width: 148mm;
+  height: 210mm;
+  padding: 78mm 15mm 0 15mm;
+  background-color: #f5f1e8;
+  background-image: url("noise.png");
+  background-repeat: repeat;
+}
+
+@page cover {
+  size: 148mm 210mm;
+  margin: 0;
+}
+
+.cover__title {
+  font-size: 30pt;
+  line-height: 1.15;
+  color: #3a3a38;
+  margin-bottom: 10pt;
+}
+
+.cover__subtitle {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 13pt;
+  color: #3a3a38;
+}
+
+/* -------------------------------------------------------------------
+   Abertura de capítulo — página inteira, fundo bege
+   ------------------------------------------------------------------- */
+
+@page opener {
+  size: 148mm 210mm;
+  margin: 0;
+}
+
+.opener {
+  page: opener;
+  break-before: page;
+  break-after: page;
+  width: 148mm;
+  height: 210mm;
+  padding: 0 15mm;
+  background-color: #f5f1e8;
+  background-image: url("noise.png");
+  background-repeat: repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.opener__number {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: 92pt;
+  line-height: 1;
+  color: #8a9a82;
+  margin-bottom: 6mm;
+}
+
+.opener__title {
+  font-size: 22pt;
+  line-height: 1.2;
+  color: #3a3a38;
+}
+
+/* -------------------------------------------------------------------
+   Introdução ("Antes das receitas")
+   ------------------------------------------------------------------- */
+
+.intro {
+  break-before: page;
+}
+
+.intro h1 {
+  font-size: 20pt;
+  margin-bottom: 12pt;
+}
+
+.intro p {
+  font-size: 12pt;
+  line-height: 1.6;
+}
+
+.intro .rules-heading {
+  font-weight: 700;
+  color: #3a3a38;
+  margin-top: 4pt;
+}
+
+.intro .sign-off {
+  font-style: italic;
+  margin-top: 6pt;
+}
+
+/* -------------------------------------------------------------------
+   Receitas
+   ------------------------------------------------------------------- */
+
+.recipe {
+  break-before: page;
+  break-inside: avoid;
+}
+
+.recipe__title {
+  font-size: 15.5pt;
+  line-height: 1.15;
+  margin-bottom: 3pt;
+}
+
+.recipe__tagline {
+  font-style: italic;
+  font-size: 10.5pt;
+  line-height: 1.3;
+  margin: 0 0 5pt 0;
+}
+
+.recipe__meta {
+  font-size: 10pt;
+  color: #3a3a38;
+  border-top: 0.6pt solid #8a9a82;
+  border-bottom: 0.6pt solid #8a9a82;
+  padding: 2pt 0;
+  margin: 0 0 7pt 0;
+}
+
+.recipe__meta span + span::before {
+  content: "   ·   ";
+  color: #8a9a82;
+}
+
+.recipe__section-label {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  color: #8a9a82;
+  font-size: 10pt;
+  margin: 5pt 0 1pt 0;
+}
+
+.recipe__section-label:first-of-type {
+  margin-top: 0;
+}
+
+.ingredient-list,
+.step-list {
+  margin: 0 0 1pt 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ingredient-list li {
+  font-size: 10.5pt;
+  line-height: 1.22;
+  padding-left: 11pt;
+  position: relative;
+  margin-bottom: 0.5pt;
+}
+
+.ingredient-list li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: #8a9a82;
+  font-weight: 700;
+}
+
+.step-list {
+  counter-reset: step;
+}
+
+.step-list li {
+  font-size: 10.5pt;
+  line-height: 1.22;
+  padding-left: 13pt;
+  position: relative;
+  margin-bottom: 1.5pt;
+  counter-increment: step;
+}
+
+.step-list li::before {
+  content: counter(step) ".";
+  position: absolute;
+  left: 0;
+  color: #8a9a82;
+  font-weight: 700;
+}
+
+.callout {
+  border-left: 2pt solid #8a9a82;
+  padding: 1pt 0 1pt 8pt;
+  margin: 5pt 0 0 0;
+}
+
+.callout__label {
+  font-weight: 700;
+  font-size: 10pt;
+  display: block;
+  margin-bottom: 1pt;
+}
+
+.callout__text {
+  font-size: 10pt;
+  line-height: 1.28;
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------
+   Trocas que valem a pena
+   ------------------------------------------------------------------- */
+
+.trades {
+  break-before: page;
+}
+
+.trades__band {
+  background-color: #f5f1e8;
+  background-image: url("noise.png");
+  background-repeat: repeat;
+  margin: -18mm -15mm 12pt -15mm;
+  padding: 14mm 15mm 8mm 15mm;
+}
+
+.trades__band h1 {
+  font-size: 19pt;
+}
+
+.trades p.intro-line {
+  margin-bottom: 10pt;
+}
+
+.trade-item {
+  margin-bottom: 9pt;
+}
+
+.lead {
+  font-weight: 700;
+  color: #3a3a38;
+}
+
+.text {
+  color: #3a3a38;
+}
+
+.trades .not-worth {
+  margin-top: 12pt;
+  border-top: 0.6pt solid #8a9a82;
+  padding-top: 10pt;
+}
+
+/* -------------------------------------------------------------------
+   Aviso legal final
+   ------------------------------------------------------------------- */
+
+.disclaimer {
+  break-before: page;
+  padding-top: 60mm;
+}
+
+.disclaimer p {
+  font-style: italic;
+  font-size: 10.5pt;
+  line-height: 1.5;
+  color: #c4704f;
+}
+
+/* -------------------------------------------------------------------
+   Utilidades
+   ------------------------------------------------------------------- */
+
+strong {
+  font-weight: 700;
+  color: #3a3a38;
+}
