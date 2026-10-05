@@ -1,4 +1,4 @@
-import { closing, educationalNotice } from "../../content/copy";
+import { closing, educationalNotice, product } from "../../content/copy";
 import CTAButton from "../CTAButton";
 import { CHECKOUT_URL } from "../../config";
 
@@ -18,7 +18,9 @@ export default function Closing() {
             {educationalNotice}
           </p>
 
-          <CTAButton href={CHECKOUT_URL}>{closing.buttonLabel}</CTAButton>
+          <CTAButton href={CHECKOUT_URL} eventLabel={product.name} eventValue={27}>
+            {closing.buttonLabel}
+          </CTAButton>
 
           <p className="font-sans text-sm text-charcoal mt-4">{closing.belowButton}</p>
         </div>

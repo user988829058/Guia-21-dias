@@ -5,7 +5,8 @@ export const CHECKOUT_URL = "CHECKOUT_URL";
 export const UPSELL_CHECKOUT_URL = "CHECKOUT_URL_UPSELL";
 export const DOWNSELL_CHECKOUT_URL = "CHECKOUT_URL_DOWNSELL";
 
-export const META_PIXEL_ID = "PIXEL_ID_PLACEHOLDER";
+// ID do Pixel do Meta: configurado direto no código base em index.html,
+// não aqui — essa é a única fonte do ID.
 
 // Troca rápida de headline para teste A/B, sem mexer no layout.
 export const ACTIVE_HEADLINE: "A" | "B" | "C" = "A";

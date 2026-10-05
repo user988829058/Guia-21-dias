@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { downsell } from "../content/copy";
+import { downsell, product } from "../content/copy";
 import CTAButton from "../components/CTAButton";
 import Footer from "../components/Footer";
 import { DOWNSELL_CHECKOUT_URL } from "../config";
@@ -22,7 +22,9 @@ export default function Downsell() {
           </div>
 
           <div className="text-center">
-            <CTAButton href={DOWNSELL_CHECKOUT_URL}>{downsell.buttonLabel}</CTAButton>
+            <CTAButton href={DOWNSELL_CHECKOUT_URL} eventLabel={product.downsell.name} eventValue={47}>
+              {downsell.buttonLabel}
+            </CTAButton>
             <div className="mt-6">
               <Link
                 to="/obrigado"

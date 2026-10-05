@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { upsell } from "../content/copy";
+import { upsell, product } from "../content/copy";
 import CTAButton from "../components/CTAButton";
 import Footer from "../components/Footer";
 import { UPSELL_CHECKOUT_URL } from "../config";
@@ -22,7 +22,9 @@ export default function Upsell() {
           </div>
 
           <div className="text-center">
-            <CTAButton href={UPSELL_CHECKOUT_URL}>{upsell.buttonLabel}</CTAButton>
+            <CTAButton href={UPSELL_CHECKOUT_URL} eventLabel={product.upsell.name} eventValue={97}>
+              {upsell.buttonLabel}
+            </CTAButton>
             <div className="mt-6">
               <Link
                 to="/downsell"
