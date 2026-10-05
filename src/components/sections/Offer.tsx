@@ -31,7 +31,7 @@ export default function Offer() {
         </div>
 
         <div className="text-center">
-          <CTAButton href={CHECKOUT_URL} eventLabel={product.name} eventValue={27}>
+          <CTAButton href={CHECKOUT_URL} eventLabel={product.name} eventValue={29.9}>
             {closing.buttonLabel}
           </CTAButton>
           <p className="font-sans text-sm text-charcoal mt-3">

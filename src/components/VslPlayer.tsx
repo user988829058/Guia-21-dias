@@ -17,7 +17,7 @@ export default function VslPlayer() {
 
   function handlePlay() {
     setIsPlaying(true);
-    trackViewContent("VSL Protocolo 21 Dias 40+");
+    trackViewContent("VSL Método Recomeço");
   }
 
   return (
@@ -26,7 +26,7 @@ export default function VslPlayer() {
         <iframe
           className="absolute inset-0 w-full h-full"
           src={embedUrl}
-          title="Vídeo — Protocolo 21 Dias 40+"
+          title="Vídeo — Método Recomeço"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />

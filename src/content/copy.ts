@@ -3,8 +3,8 @@
 // publicidade e devem ir para a tela exatamente como estão.
 
 export const product = {
-  name: "Protocolo 21 Dias 40+",
-  price: "R$ 27",
+  name: "Método Recomeço",
+  price: "R$ 29,90",
   bump1: {
     name: "Guia de Exercícios de 10 Minutos em Casa",
     price: "R$ 19,90",
@@ -103,7 +103,7 @@ export const direction = {
 };
 
 export const offer = {
-  title: "Protocolo 21 Dias 40+",
+  title: "Método Recomeço",
   subtitle:
     "Um plano de 21 dias para reorganizar sua rotina com base no que muda no corpo nessa fase.",
   includesTitle: "O que vem dentro:",
@@ -192,7 +192,7 @@ export const faq = {
 export const closing = {
   title: "A escolha que resta",
   text: "Daqui a 21 dias você vai estar 21 dias mais velha de qualquer forma. A única pergunta é se vai estar fazendo a mesma coisa que já não funcionou nos últimos anos, ou testando uma estratégia que leva em conta o corpo que você tem hoje.",
-  buttonLabel: "Quero o Protocolo 21 Dias 40+ — R$ 27",
+  buttonLabel: "Quero o Método Recomeço — R$ 29,90",
   belowButton: "Acesso imediato · Garantia de 7 dias · Pagamento seguro",
 };
 

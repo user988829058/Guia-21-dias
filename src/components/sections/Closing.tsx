@@ -18,7 +18,7 @@ export default function Closing() {
             {educationalNotice}
           </p>
 
-          <CTAButton href={CHECKOUT_URL} eventLabel={product.name} eventValue={27}>
+          <CTAButton href={CHECKOUT_URL} eventLabel={product.name} eventValue={29.9}>
             {closing.buttonLabel}
           </CTAButton>
 
