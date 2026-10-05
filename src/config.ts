@@ -11,6 +11,12 @@ export const DOWNSELL_CHECKOUT_URL = "CHECKOUT_URL_DOWNSELL";
 // Troca rápida de headline para teste A/B, sem mexer no layout.
 export const ACTIVE_HEADLINE: "A" | "B" | "C" = "A";
 
-// ID do vídeo (VSL) — YouTube não listado publicamente ou Vimeo.
+// URL direta do arquivo de vídeo (mp4), via variável de ambiente VITE_VSL_URL
+// (configurada no Vercel). Quando presente, tem prioridade sobre o embed
+// YouTube/Vimeo abaixo.
+export const VSL_URL = import.meta.env.VITE_VSL_URL as string | undefined;
+
+// ID do vídeo (VSL) — YouTube não listado publicamente ou Vimeo. Usado só
+// como alternativa quando VITE_VSL_URL não está definida.
 export const VSL_VIDEO_ID = "VIDEO_ID_PLACEHOLDER";
 export const VSL_PROVIDER: "youtube" | "vimeo" = "youtube";

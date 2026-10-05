@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { VSL_VIDEO_ID, VSL_PROVIDER } from "../config";
+import { VSL_URL, VSL_VIDEO_ID, VSL_PROVIDER } from "../config";
 import { trackViewContent } from "../lib/pixel";
 
 /**
@@ -23,13 +23,23 @@ export default function VslPlayer() {
   return (
     <div className="relative w-full aspect-video bg-charcoal overflow-hidden">
       {isPlaying ? (
-        <iframe
-          className="absolute inset-0 w-full h-full"
-          src={embedUrl}
-          title="Vídeo — Método Recomeço"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+        VSL_URL ? (
+          <video
+            className="absolute inset-0 w-full h-full"
+            src={VSL_URL}
+            controls
+            autoPlay
+            playsInline
+          />
+        ) : (
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src={embedUrl}
+            title="Vídeo — Método Recomeço"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        )
       ) : (
         <button
           type="button"
