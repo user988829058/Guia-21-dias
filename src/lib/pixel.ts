@@ -16,15 +16,19 @@ export function trackViewContent(contentName: string): void {
 
 const INITIATE_CHECKOUT_FLAG = "p21_initiate_checkout_fired";
 
-/** Dispara InitiateCheckout uma única vez por sessão, não uma vez por botão. */
-export function trackInitiateCheckout(contentName: string, value?: number): void {
-  if (typeof window === "undefined") return;
+/**
+ * Dispara InitiateCheckout uma única vez por sessão, não uma vez por botão.
+ * Retorna true quando o evento foi disparado agora (primeira vez na sessão),
+ * para quem chama saber se precisa segurar a navegação até o evento sair.
+ */
+export function trackInitiateCheckout(contentName: string, value?: number): boolean {
+  if (typeof window === "undefined") return false;
 
   try {
-    if (sessionStorage.getItem(INITIATE_CHECKOUT_FLAG)) return;
+    if (sessionStorage.getItem(INITIATE_CHECKOUT_FLAG)) return false;
     sessionStorage.setItem(INITIATE_CHECKOUT_FLAG, "1");
   } catch {
-    // sessionStorage indisponível (modo privado etc.) — dispara mesmo assim
+    // sessionStorage indisponível (modo privado etc.) — dispara mesmo assim, sem dedupe
   }
 
   window.fbq?.("track", "InitiateCheckout", {
@@ -32,4 +36,5 @@ export function trackInitiateCheckout(contentName: string, value?: number): void
     value,
     currency: "BRL",
   });
+  return true;
 }

@@ -1,9 +1,7 @@
-// Substitua os placeholders abaixo pelos links reais da plataforma de checkout
-// e pelo ID do Pixel do Meta antes de publicar.
-
-export const CHECKOUT_URL = "CHECKOUT_URL";
-export const UPSELL_CHECKOUT_URL = "CHECKOUT_URL_UPSELL";
-export const DOWNSELL_CHECKOUT_URL = "CHECKOUT_URL_DOWNSELL";
+// Constante única do checkout: todo botão de compra da landing (produto
+// principal, upsell e downsell) referencia esta mesma URL. Para trocar o
+// destino de todos os botões de uma vez, troque só esta linha.
+export const CHECKOUT_URL = "https://pay.kiwify.com.br/0g2zXpZ";
 
 // ID do Pixel do Meta: configurado direto no código base em index.html,
 // não aqui — essa é a única fonte do ID.

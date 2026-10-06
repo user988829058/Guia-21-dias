@@ -9,6 +9,9 @@ interface CTAButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   eventValue?: number;
 }
 
+// Tempo para o beacon do InitiateCheckout sair antes de navegar para a Kiwify.
+const TRACKING_FLUSH_DELAY_MS = 200;
+
 export default function CTAButton({
   href,
   children,
@@ -19,8 +22,26 @@ export default function CTAButton({
   ...rest
 }: CTAButtonProps) {
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
-    trackInitiateCheckout(eventLabel, eventValue);
     onClick?.(event);
+    if (event.defaultPrevented) return;
+
+    const firedNow = trackInitiateCheckout(eventLabel, eventValue);
+    if (!firedNow) return;
+
+    // Clique com modificador (abrir em nova aba/janela) ou botão do meio:
+    // o evento já disparou acima, mas a navegação em si fica por conta do
+    // navegador — não interceptamos nem atrasamos esse caso.
+    const isPlainLeftClick =
+      event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
+    if (!isPlainLeftClick) return;
+
+    // Primeira vez disparando nesta sessão: segura a navegação só o
+    // suficiente para o evento sair antes do navegador descarregar a página.
+    event.preventDefault();
+    const destination = withUtmParams(href);
+    window.setTimeout(() => {
+      window.location.href = destination;
+    }, TRACKING_FLUSH_DELAY_MS);
   }
 
   return (
