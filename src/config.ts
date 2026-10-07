@@ -3,8 +3,8 @@
 // destino de todos os botões de uma vez, troque só esta linha.
 export const CHECKOUT_URL = "https://pay.kiwify.com.br/0g2zXpZ";
 
-// ID do Pixel do Meta: configurado direto no código base em index.html,
-// não aqui — essa é a única fonte do ID.
+// ID do Pixel do Meta: vem da env var VITE_META_PIXEL_ID (configurada na
+// plataforma de deploy, nunca commitada aqui). Lido em src/lib/pixel.ts.
 
 // Troca rápida de headline para teste A/B, sem mexer no layout.
 export const ACTIVE_HEADLINE: "A" | "B" | "C" = "A";

@@ -17,7 +17,8 @@
       rel="stylesheet"
     />
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code (cria window.fbq; o fbq('init', ...) + PageView
+         rodam em src/lib/pixel.ts, que lê o ID de VITE_META_PIXEL_ID) -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -27,15 +28,15 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '2882557092131341');
-      fbq('track', 'PageView');
     </script>
     <!-- End Meta Pixel Code -->
   </head>
   <body>
-    <!-- Meta Pixel Code (fallback sem JS) -->
+    <!-- Meta Pixel Code (fallback sem JS). %VITE_META_PIXEL_ID% é o
+         placeholder de env var em HTML do próprio Vite (substituído no
+         build), já que esta tag nunca executa import.meta.env. -->
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2882557092131341&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=%VITE_META_PIXEL_ID%&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
     <div id="root"></div>

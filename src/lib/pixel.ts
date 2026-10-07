@@ -5,10 +5,23 @@ declare global {
 }
 
 /**
- * O Pixel do Meta é carregado pelo código base colado em index.html
- * (dispara PageView automaticamente). Estas funções só registram eventos
- * adicionais no fbq já existente — nenhum outro carregamento acontece aqui.
+ * O código base em index.html só cria window.fbq (a fila/stub) e carrega o
+ * fbevents.js — não inicializa o pixel nem dispara PageView, porque o ID
+ * vem da env var VITE_META_PIXEL_ID (configurada na plataforma de deploy,
+ * não commitada), e isso só dá pra ler aqui, em JS, via import.meta.env.
  */
+export function initMetaPixel(): void {
+  const pixelId = import.meta.env.VITE_META_PIXEL_ID;
+  if (!pixelId) {
+    console.warn(
+      "VITE_META_PIXEL_ID não está definida — Pixel do Meta não foi inicializado."
+    );
+    return;
+  }
+
+  window.fbq?.("init", pixelId);
+  window.fbq?.("track", "PageView");
+}
 
 export function trackViewContent(contentName: string): void {
   window.fbq?.("track", "ViewContent", { content_name: contentName });
